@@ -1,0 +1,293 @@
+[root@avnkumar10 ~]# podman login quay.io
+Username: avnkumar
+Password: 
+Login Succeeded!
+
+[root@avnkumar10 ~]# podman pull quay.io/fedora/fedora:latest
+Trying to pull quay.io/fedora/fedora:latest...
+Getting image source signatures
+Copying blob f5a33df773ea done   | 
+Copying config 124974b214 done   | 
+Writing manifest to image destination
+124974b214220b350906c4c25290e6e566d6869de742c7f8df030620268e3fe5
+
+# podman build -t quay.io/myuser/fedora-httpd:latest .
+STEP 1/5: FROM quay.io/fedora/fedora:latest
+STEP 2/5: RUN dnf install -y httpd && dnf clean all
+Updating and loading repositories:
+ Fedora 43 openh264 (From Cisco) - x86_ 100% |   1.6 KiB/s |   5.8 KiB |  00m04s
+ Fedora 43 - x86_64 - Updates           100% |   7.1 MiB/s |  27.8 MiB |  00m04s
+ Fedora 43 - x86_64                     100% |   3.3 MiB/s |  35.4 MiB |  00m11s
+Repositories loaded.
+Package                      Arch   Version         Repository      Size
+Installing:
+ httpd                       x86_64 2.4.66-1.fc43   updates     56.6 KiB
+Installing dependencies:
+ apr                         x86_64 1.7.6-3.fc43    fedora     299.6 KiB
+ apr-util                    x86_64 1.6.3-25.fc43   updates    216.4 KiB
+ apr-util-lmdb               x86_64 1.6.3-25.fc43   updates     11.1 KiB
+ dbus                        x86_64 1:1.16.0-4.fc43 fedora       0.0   B
+ dbus-broker                 x86_64 37-2.fc43       fedora     387.2 KiB
+ dbus-common                 noarch 1:1.16.0-4.fc43 fedora      11.2 KiB
+ device-mapper               x86_64 1.02.208-2.fc43 fedora     346.6 KiB
+ device-mapper-libs          x86_64 1.02.208-2.fc43 fedora     418.2 KiB
+ expat                       x86_64 2.7.3-1.fc43    updates    301.1 KiB
+ fedora-logos-httpd          noarch 42.0.1-2.fc43   fedora      12.1 KiB
+ fonts-filesystem            noarch 1:2.0.5-23.fc43 fedora       0.0   B
+ httpd-core                  x86_64 2.4.66-1.fc43   updates      4.5 MiB
+ httpd-filesystem            noarch 2.4.66-1.fc43   updates    464.0   B
+ httpd-tools                 x86_64 2.4.66-1.fc43   updates    198.8 KiB
+ kbd                         x86_64 2.8.0-3.fc43    fedora       1.4 MiB
+ kbd-legacy                  noarch 2.8.0-3.fc43    fedora     571.4 KiB
+ kbd-misc                    noarch 2.8.0-3.fc43    fedora       2.5 MiB
+ kmod                        x86_64 34.2-2.fc43     fedora     247.2 KiB
+ libcbor                     x86_64 0.12.0-6.fc43   fedora      77.8 KiB
+ libfdisk                    x86_64 2.41.3-7.fc43   updates    380.4 KiB
+ libpkgconf                  x86_64 2.3.0-3.fc43    fedora      78.1 KiB
+ libseccomp                  x86_64 2.6.0-2.fc43    fedora     224.9 KiB
+ lmdb-libs                   x86_64 0.9.34-1.fc43   updates    106.0 KiB
+ mailcap                     noarch 2.1.54-9.fc43   fedora      86.0 KiB
+ pkgconf                     x86_64 2.3.0-3.fc43    fedora      88.5 KiB
+ pkgconf-m4                  noarch 2.3.0-3.fc43    fedora      14.4 KiB
+ pkgconf-pkg-config          x86_64 2.3.0-3.fc43    fedora     989.0   B
+ systemd                     x86_64 258.7-1.fc43    updates     12.7 MiB
+ systemd-pam                 x86_64 258.7-1.fc43    updates      1.2 MiB
+ systemd-shared              x86_64 258.7-1.fc43    updates      5.0 MiB
+ xkeyboard-config            noarch 2.46-1.fc43     updates     10.2 MiB
+Installing weak dependencies:
+ apr-util-openssl            x86_64 1.6.3-25.fc43   updates     19.4 KiB
+ cryptsetup-libs             x86_64 2.8.4-1.fc43    updates      2.6 MiB
+ diffutils                   x86_64 3.12-3.fc43     fedora       1.6 MiB
+ julietaula-montserrat-fonts noarch 1:9.000-3.fc43  fedora       5.6 MiB
+ kmod-libs                   x86_64 34.2-2.fc43     fedora     135.1 KiB
+ libbpf                      x86_64 2:1.6.1-3.fc43  fedora     422.8 KiB
+ libfido2                    x86_64 1.16.0-3.fc43   fedora     238.5 KiB
+ libxkbcommon                x86_64 1.11.0-1.fc43   fedora     408.2 KiB
+ mod_http2                   x86_64 2.0.37-1.fc43   updates    435.4 KiB
+ mod_lua                     x86_64 2.4.66-1.fc43   updates    133.7 KiB
+ qrencode-libs               x86_64 4.1.1-11.fc43   fedora     164.8 KiB
+ systemd-networkd            x86_64 258.7-1.fc43    updates      2.3 MiB
+ systemd-resolved            x86_64 258.7-1.fc43    updates    733.0 KiB
+ systemd-udev                x86_64 258.7-1.fc43    updates     12.8 MiB
+
+Transaction Summary:
+ Installing:        46 packages
+
+Total size of inbound packages is 20 MiB. Need to download 20 MiB.
+After this operation, 69 MiB extra will be used (install 69 MiB, remove 0 B).
+[ 1/46] httpd-filesystem-0:2.4.66-1.fc4 100% |   8.8 KiB/s |  11.8 KiB |  00m01s
+[ 2/46] httpd-0:2.4.66-1.fc43.x86_64    100% |  29.6 KiB/s |  46.4 KiB |  00m02s
+[ 3/46] httpd-tools-0:2.4.66-1.fc43.x86 100% | 250.8 KiB/s |  79.5 KiB |  00m00s
+[ 4/46] httpd-core-0:2.4.66-1.fc43.x86_ 100% | 722.4 KiB/s |   1.4 MiB |  00m02s
+[ 5/46] mailcap-0:2.1.54-9.fc43.noarch  100% |  67.0 KiB/s |  34.0 KiB |  00m01s
+[ 6/46] apr-util-lmdb-0:1.6.3-25.fc43.x 100% | 138.5 KiB/s |  14.1 KiB |  00m00s
+[ 7/46] apr-util-0:1.6.3-25.fc43.x86_64 100% | 291.8 KiB/s |  97.8 KiB |  00m00s
+[ 8/46] apr-0:1.7.6-3.fc43.x86_64       100% | 128.5 KiB/s | 129.8 KiB |  00m01s
+[ 9/46] systemd-0:258.7-1.fc43.x86_64   100% |  12.2 MiB/s |   4.2 MiB |  00m00s
+[10/46] dbus-1:1.16.0-4.fc43.x86_64     100% |  54.6 KiB/s |   7.5 KiB |  00m00s
+[11/46] systemd-pam-0:258.7-1.fc43.x86_ 100% | 924.5 KiB/s | 424.3 KiB |  00m00s
+[12/46] systemd-shared-0:258.7-1.fc43.x 100% |   2.9 MiB/s |   1.8 MiB |  00m01s
+[13/46] libseccomp-0:2.6.0-2.fc43.x86_6 100% | 162.2 KiB/s |  75.7 KiB |  00m00s
+[14/46] dbus-common-1:1.16.0-4.fc43.noa 100% | 106.6 KiB/s |  14.2 KiB |  00m00s
+[15/46] lmdb-libs-0:0.9.34-1.fc43.x86_6 100% | 437.6 KiB/s |  61.7 KiB |  00m00s
+[16/46] expat-0:2.7.3-1.fc43.x86_64     100% |   1.1 MiB/s | 119.9 KiB |  00m00s
+[17/46] dbus-broker-0:37-2.fc43.x86_64  100% | 260.2 KiB/s | 173.8 KiB |  00m01s
+[18/46] libfdisk-0:2.41.3-7.fc43.x86_64 100% | 981.5 KiB/s | 161.9 KiB |  00m00s
+[19/46] mod_http2-0:2.0.37-1.fc43.x86_6 100% |   1.5 MiB/s | 163.7 KiB |  00m00s
+[20/46] fedora-logos-httpd-0:42.0.1-2.f 100% | 115.7 KiB/s |  14.8 KiB |  00m00s
+[21/46] mod_lua-0:2.4.66-1.fc43.x86_64  100% | 407.7 KiB/s |  57.1 KiB |  00m00s
+[22/46] apr-util-openssl-0:1.6.3-25.fc4 100% | 156.1 KiB/s |  15.8 KiB |  00m00s
+[23/46] libxkbcommon-0:1.11.0-1.fc43.x8 100% | 509.8 KiB/s | 174.3 KiB |  00m00s
+[24/46] libbpf-2:1.6.1-3.fc43.x86_64    100% | 661.0 KiB/s | 191.0 KiB |  00m00s
+[25/46] cryptsetup-libs-0:2.8.4-1.fc43. 100% |   2.0 MiB/s | 574.2 KiB |  00m00s
+[26/46] device-mapper-libs-0:1.02.208-2 100% | 702.9 KiB/s | 179.9 KiB |  00m00s
+[27/46] device-mapper-0:1.02.208-2.fc43 100% | 537.7 KiB/s | 138.7 KiB |  00m00s
+[28/46] diffutils-0:3.12-3.fc43.x86_64  100% |   1.0 MiB/s | 392.3 KiB |  00m00s
+[29/46] qrencode-libs-0:4.1.1-11.fc43.x 100% | 252.4 KiB/s |  62.3 KiB |  00m00s
+[30/46] systemd-resolved-0:258.7-1.fc43 100% |   2.9 MiB/s | 319.7 KiB |  00m00s
+[31/46] kmod-libs-0:34.2-2.fc43.x86_64  100% | 204.4 KiB/s |  68.1 KiB |  00m00s
+[32/46] systemd-networkd-0:258.7-1.fc43 100% |   2.8 MiB/s | 775.5 KiB |  00m00s
+[33/46] fonts-filesystem-1:2.0.5-23.fc4 100% |  69.4 KiB/s |   8.7 KiB |  00m00s
+[34/46] systemd-udev-0:258.7-1.fc43.x86 100% |  16.9 MiB/s |   2.6 MiB |  00m00s
+[35/46] xkeyboard-config-0:2.46-1.fc43. 100% |   4.6 MiB/s | 993.6 KiB |  00m00s
+[36/46] julietaula-montserrat-fonts-1:9 100% |   3.1 MiB/s |   1.6 MiB |  00m01s
+[37/46] kbd-0:2.8.0-3.fc43.x86_64       100% |   1.0 MiB/s | 386.1 KiB |  00m00s
+[38/46] kmod-0:34.2-2.fc43.x86_64       100% | 356.7 KiB/s | 132.7 KiB |  00m00s
+[39/46] kbd-legacy-0:2.8.0-3.fc43.noarc 100% |   2.0 MiB/s | 578.3 KiB |  00m00s
+[40/46] pkgconf-pkg-config-0:2.3.0-3.fc 100% |  70.1 KiB/s |   9.6 KiB |  00m00s
+[41/46] kbd-misc-0:2.8.0-3.fc43.noarch  100% |   4.1 MiB/s |   1.6 MiB |  00m00s
+[42/46] pkgconf-0:2.3.0-3.fc43.x86_64   100% | 169.5 KiB/s |  44.6 KiB |  00m00s
+[43/46] pkgconf-m4-0:2.3.0-3.fc43.noarc 100% |  52.9 KiB/s |  13.9 KiB |  00m00s
+[44/46] libpkgconf-0:2.3.0-3.fc43.x86_6 100% | 293.8 KiB/s |  37.9 KiB |  00m00s
+[45/46] libcbor-0:0.12.0-6.fc43.x86_64  100% | 259.8 KiB/s |  33.5 KiB |  00m00s
+[46/46] libfido2-0:1.16.0-3.fc43.x86_64 100% | 390.7 KiB/s |  98.5 KiB |  00m00s
+--------------------------------------------------------------------------------
+[46/46] Total                           100% |   3.4 MiB/s |  20.1 MiB |  00m06s
+Running transaction
+[ 1/48] Verify package files            100% | 222.0   B/s |  46.0   B |  00m00s
+[ 2/48] Prepare transaction             100% |  51.0   B/s |  46.0   B |  00m01s
+[ 3/48] Installing apr-0:1.7.6-3.fc43.x 100% |   6.3 MiB/s | 301.5 KiB |  00m00s
+[ 4/48] Installing libfdisk-0:2.41.3-7. 100% |  31.1 MiB/s | 381.6 KiB |  00m00s
+[ 5/48] Installing expat-0:2.7.3-1.fc43 100% |  15.6 MiB/s | 303.2 KiB |  00m00s
+[ 6/48] Installing apr-util-0:1.6.3-25. 100% | 106.4 MiB/s | 218.0 KiB |  00m00s
+[ 7/48] Installing libseccomp-0:2.6.0-2 100% |  73.8 MiB/s | 226.8 KiB |  00m00s
+[ 8/48] Installing systemd-shared-0:258 100% | 145.9 MiB/s |   5.0 MiB |  00m00s
+[ 9/48] Installing httpd-tools-0:2.4.66 100% |   9.4 MiB/s | 202.5 KiB |  00m00s
+[10/48] Installing libcbor-0:0.12.0-6.f 100% |  38.7 MiB/s |  79.2 KiB |  00m00s
+[11/48] Installing libpkgconf-0:2.3.0-3 100% |  38.7 MiB/s |  79.2 KiB |  00m00s
+[12/48] Installing pkgconf-0:2.3.0-3.fc 100% |   4.9 MiB/s |  91.0 KiB |  00m00s
+[13/48] Installing pkgconf-m4-0:2.3.0-3 100% |  14.5 MiB/s |  14.8 KiB |  00m00s
+[14/48] Installing pkgconf-pkg-config-0 100% | 118.2 KiB/s |   1.8 KiB |  00m00s
+[15/48] Installing kmod-0:34.2-2.fc43.x 100% |  11.2 MiB/s | 253.1 KiB |  00m00s
+[16/48] Installing kbd-misc-0:2.8.0-3.f 100% |  38.9 MiB/s |   2.6 MiB |  00m00s
+[17/48] Installing kbd-legacy-0:2.8.0-3 100% |  26.4 MiB/s | 621.4 KiB |  00m00s
+[18/48] Installing kbd-0:2.8.0-3.fc43.x 100% |  52.1 MiB/s |   1.5 MiB |  00m00s
+[19/48] Installing xkeyboard-config-0:2 100% | 229.0 MiB/s |  10.3 MiB |  00m00s
+[20/48] Installing fonts-filesystem-1:2 100% | 769.5 KiB/s | 788.0   B |  00m00s
+[21/48] Installing kmod-libs-0:34.2-2.f 100% |  66.5 MiB/s | 136.2 KiB |  00m00s
+[22/48] Installing libbpf-2:1.6.1-3.fc4 100% | 137.9 MiB/s | 423.7 KiB |  00m00s
+[23/48] Installing fedora-logos-httpd-0 100% |  12.7 MiB/s |  13.1 KiB |  00m00s
+[24/48] Installing lmdb-libs-0:0.9.34-1 100% |  52.5 MiB/s | 107.4 KiB |  00m00s
+[25/48] Installing apr-util-lmdb-0:1.6. 100% | 265.9 KiB/s |  12.0 KiB |  00m00s
+>>> Running sysusers scriptlet: dbus-common-1:1.16.0-4.fc43.noarch              
+>>> Finished sysusers scriptlet: dbus-common-1:1.16.0-4.fc43.noarch             
+>>> Scriptlet output:                                                           
+>>> Creating group 'dbus' with GID 81.                                          
+>>> Creating user 'dbus' (System Message Bus) with UID 81 and GID 81.           
+>>>                                                                             
+[26/48] Installing dbus-common-1:1.16.0 100% | 564.6 KiB/s |  13.6 KiB |  00m00s
+[27/48] Installing dbus-broker-0:37-2.f 100% |  15.9 MiB/s | 389.8 KiB |  00m00s
+[28/48] Installing dbus-1:1.16.0-4.fc43 100% |   1.8 KiB/s | 124.0   B |  00m00s
+>>> Running sysusers scriptlet: systemd-0:258.7-1.fc43.x86_64                   
+>>> Finished sysusers scriptlet: systemd-0:258.7-1.fc43.x86_64                  
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-journal' with GID 190.                              
+>>>                                                                             
+>>> Running sysusers scriptlet: systemd-0:258.7-1.fc43.x86_64                   
+>>> Finished sysusers scriptlet: systemd-0:258.7-1.fc43.x86_64                  
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-oom' with GID 999.                                  
+>>> Creating user 'systemd-oom' (systemd Userspace OOM Killer) with UID 999 and 
+>>>                                                                             
+[29/48] Installing systemd-0:258.7-1.fc 100% |  49.7 MiB/s |  12.9 MiB |  00m00s
+[30/48] Installing systemd-pam-0:258.7- 100% | 145.8 MiB/s |   1.2 MiB |  00m00s
+[31/48] Installing device-mapper-0:1.02 100% |  18.0 MiB/s | 350.2 KiB |  00m00s
+[32/48] Installing device-mapper-libs-0 100% | 102.4 MiB/s | 419.4 KiB |  00m00s
+[33/48] Installing cryptsetup-libs-0:2. 100% | 294.8 MiB/s |   2.7 MiB |  00m00s
+[34/48] Installing mailcap-0:2.1.54-9.f 100% |   1.5 MiB/s |  87.1 KiB |  00m00s
+>>> Running sysusers scriptlet: httpd-filesystem-0:2.4.66-1.fc43.noarch         
+>>> Finished sysusers scriptlet: httpd-filesystem-0:2.4.66-1.fc43.noarch        
+>>> Scriptlet output:                                                           
+>>> Creating group 'apache' with GID 48.                                        
+>>> Creating user 'apache' (Apache) with UID 48 and GID 48.                     
+>>>                                                                             
+[35/48] Installing httpd-filesystem-0:2 100% | 240.5 KiB/s |   2.2 KiB |  00m00s
+[36/48] Installing httpd-core-0:2.4.66- 100% |  55.3 MiB/s |   4.6 MiB |  00m00s
+[37/48] Installing httpd-0:2.4.66-1.fc4 100% |   3.9 MiB/s |  60.3 KiB |  00m00s
+[38/48] Installing mod_http2-0:2.0.37-1 100% | 106.9 MiB/s | 437.7 KiB |  00m00s
+[39/48] Installing mod_lua-0:2.4.66-1.f 100% |   1.5 MiB/s | 134.5 KiB |  00m00s
+>>> Running sysusers scriptlet: systemd-udev-0:258.7-1.fc43.x86_64              
+>>> Finished sysusers scriptlet: systemd-udev-0:258.7-1.fc43.x86_64             
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-coredump' with GID 998.                             
+>>> Creating user 'systemd-coredump' (systemd Core Dumper) with UID 998 and GID 
+>>>                                                                             
+>>> Running sysusers scriptlet: systemd-udev-0:258.7-1.fc43.x86_64              
+>>> Finished sysusers scriptlet: systemd-udev-0:258.7-1.fc43.x86_64             
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-timesync' with GID 997.                             
+>>> Creating user 'systemd-timesync' (systemd Time Synchronization) with UID 997
+>>>                                                                             
+[40/48] Installing systemd-udev-0:258.7 100% |  17.6 MiB/s |  12.9 MiB |  00m01s
+>>> Running %post scriptlet: systemd-udev-0:258.7-1.fc43.x86_64                 
+>>> Finished %post scriptlet: systemd-udev-0:258.7-1.fc43.x86_64                
+>>> Scriptlet output:                                                           
+>>> Failed to preset unit: Unit system-systemdx2dcryptsetup.slice does not exist
+>>>                                                                             
+>>> Running sysusers scriptlet: systemd-networkd-0:258.7-1.fc43.x86_64          
+>>> Finished sysusers scriptlet: systemd-networkd-0:258.7-1.fc43.x86_64         
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-network' with GID 192.                              
+>>> Creating user 'systemd-network' (systemd Network Management) with UID 192 an
+>>>                                                                             
+[41/48] Installing systemd-networkd-0:2 100% |   4.0 MiB/s |   2.3 MiB |  00m01s
+>>> Running %post scriptlet: systemd-networkd-0:258.7-1.fc43.x86_64             
+>>> Finished %post scriptlet: systemd-networkd-0:258.7-1.fc43.x86_64            
+>>> Scriptlet output:                                                           
+>>> Created symlink '/etc/systemd/system/sysinit.target.wants/systemd-network-ge
+>>>                                                                             
+>>> Running sysusers scriptlet: systemd-resolved-0:258.7-1.fc43.x86_64          
+>>> Finished sysusers scriptlet: systemd-resolved-0:258.7-1.fc43.x86_64         
+>>> Scriptlet output:                                                           
+>>> Creating group 'systemd-resolve' with GID 193.                              
+>>> Creating user 'systemd-resolve' (systemd Resolver) with UID 193 and GID 193.
+>>>                                                                             
+[42/48] Installing systemd-resolved-0:2 100% |  13.8 MiB/s | 737.4 KiB |  00m00s
+>>> Running %post scriptlet: systemd-resolved-0:258.7-1.fc43.x86_64             
+>>> Finished %post scriptlet: systemd-resolved-0:258.7-1.fc43.x86_64            
+>>> Scriptlet output:                                                           
+>>> Created symlink '/etc/systemd/system/dbus-org.freedesktop.resolve1.service' 
+>>> Created symlink '/etc/systemd/system/sysinit.target.wants/systemd-resolved.s
+>>> Created symlink '/etc/systemd/system/sockets.target.wants/systemd-resolved-v
+>>> Created symlink '/etc/systemd/system/sockets.target.wants/systemd-resolved-m
+>>>                                                                             
+[43/48] Installing julietaula-montserra 100% | 179.4 MiB/s |   5.6 MiB |  00m00s
+[44/48] Installing libxkbcommon-0:1.11. 100% | 133.4 MiB/s | 409.9 KiB |  00m00s
+[45/48] Installing libfido2-0:1.16.0-3. 100% |  78.1 MiB/s | 240.0 KiB |  00m00s
+[46/48] Installing apr-util-openssl-0:1 100% |  19.8 MiB/s |  20.3 KiB |  00m00s
+[47/48] Installing qrencode-libs-0:4.1. 100% |  81.4 MiB/s | 166.6 KiB |  00m00s
+[48/48] Installing diffutils-0:3.12-3.f 100% |   2.2 MiB/s |   1.6 MiB |  00m01s
+Complete!
+Removed 18 files, 11 directories (total of 98 MiB). 0 errors occurred.
+--> 022204ee8fb9
+STEP 3/5: COPY index.html /var/www/html/
+Error: building at STEP "COPY index.html /var/www/html/": checking on sources under "/root": copier: stat: "/index.html": no such file or directory
+[root@avnkumar10 ~]# ll /var/www/html/
+
+
+[root@avnkumar10 ~]# podman commit mycontainer my-custom-image
+Getting image source signatures
+Copying blob 4c45863ad2a7 skipped: already exists  
+Copying blob a55eeea8ee16 done   | 
+Copying config ad81347e83 done   | 
+Writing manifest to image destination
+ad81347e83c5345991edf0fcabf427f4855c72f14d6f6fe438b94ec590099aac
+[root@avnkumar10 ~]# podman tag my-custom-image quay.io/avnkumar/fedora-httpd:v1.0
+[root@avnkumar10 ~]# podman build -t quay.io/avnkumar/fedora-httpd:latest .
+STEP 1/5: FROM quay.io/fedora/fedora:latest
+STEP 2/5: RUN dnf install -y httpd && dnf clean all
+--> Using cache 022204ee8fb9ec873282b9ce9f2de92851af1c13fc87048eb5e81e5becf04b5c
+--> 022204ee8fb9
+STEP 3/5: COPY index.html /var/www/html/
+Error: building at STEP "COPY index.html /var/www/html/": checking on sources under "/root": copier: stat: "/index.html": no such file or directory
+[root@avnkumar10 ~]# ls
+anaconda-ks.cfg  app.py  Containerfile  mycontainer  registration_host_init.sh  tmp_leapp_py3  www
+[root@avnkumar10 ~]# podman push quay.io/avnkumar/fedora-httpd:latest
+Error: quay.io/avnkumar/fedora-httpd:latest: image not known
+[root@avnkumar10 ~]# podman push quay.io/avnkumar/fedora-httpd:v1.0
+Getting image source signatures
+Copying blob a55eeea8ee16 done   | 
+Copying blob f5a33df773ea skipped: already exists  
+Copying config ad81347e83 done   | 
+Writing manifest to image destination
+[root@avnkumar10 ~]# podman images
+REPOSITORY                     TAG         IMAGE ID      CREATED         SIZE
+quay.io/avnkumar/fedora-httpd  v1.0        ad81347e83c5  3 minutes ago   372 MB
+localhost/my-custom-image      latest      ad81347e83c5  3 minutes ago   372 MB
+<none>                         <none>      022204ee8fb9  14 minutes ago  269 MB
+quay.io/fedora/fedora          latest      124974b21422  11 hours ago    187 MB
+quay.io/quay/busybox           latest      e3121c769e39  5 years ago     1.45 MB
+[root@avnkumar10 ~]# 
+[root@avnkumar10 ~]# 
+[root@avnkumar10 ~]# 
+[root@avnkumar10 ~]# podman pull quay.io/avnkumar/fedora-httpd
+Trying to pull quay.io/avnkumar/fedora-httpd:latest...
+Error: unable to copy from source docker://quay.io/avnkumar/fedora-httpd:latest: initializing source docker://quay.io/avnkumar/fedora-httpd:latest: reading manifest latest in quay.io/avnkumar/fedora-httpd: manifest unknown
+[root@avnkumar10 ~]# podman pull quay.io/avnkumar/fedora-httpd:v1.0
+Trying to pull quay.io/avnkumar/fedora-httpd:v1.0...
+Getting image source signatures
+Copying blob 7a9198c23c56 skipped: already exists  
+Copying blob f5a33df773ea skipped: already exists  
+Copying config ad81347e83 done   | 
+Writing manifest to image destination
+ad81347e83c5345991edf0fcabf427f4855c72f14d6f6fe438b94ec590099aac
